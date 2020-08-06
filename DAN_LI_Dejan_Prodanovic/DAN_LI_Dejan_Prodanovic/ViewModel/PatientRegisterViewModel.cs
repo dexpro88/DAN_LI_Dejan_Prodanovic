@@ -15,35 +15,34 @@ using System.Windows.Input;
 
 namespace DAN_LI_Dejan_Prodanovic.ViewModel
 {
-    class DoctorRegisterViewModel:ViewModelBase
+    class PatientRegisterViewModel:ViewModelBase
     {
-        DoctorRegisterView view;
+        PatientRegisterView view;
         IService service;
 
-        public DoctorRegisterViewModel(DoctorRegisterView doctorRegisterView)
+        public PatientRegisterViewModel(PatientRegisterView patientRegisterView)
         {
-            view = doctorRegisterView;
+            view = patientRegisterView;
             service = new ServiceClass();
-            Doctor = new tblDoctor();
-
+            Patient = new tblPatient();
 
         }
 
-        private tblDoctor doctor;
-        public tblDoctor Doctor
+        private tblPatient patient;
+        public tblPatient Patient
         {
             get
             {
-                return doctor;
+                return patient;
             }
             set
             {
-                doctor = value;
-                OnPropertyChanged("Doctor");
+                patient = value;
+                OnPropertyChanged("Patient");
             }
         }
 
-            
+
 
         private ICommand save;
         public ICommand Save
@@ -64,21 +63,16 @@ namespace DAN_LI_Dejan_Prodanovic.ViewModel
             {
                 DateTime dateOfBirth;
 
-                if (!ValidationClass.JMBGisValid(Doctor.JMBG, out dateOfBirth))
+                if (!ValidationClass.JMBGisValid(Patient.JMBG, out dateOfBirth))
                 {
                     MessageBox.Show("JMBG is not valid");
                     return;
                 }
 
-                int age = ValidationClass.CountAge(dateOfBirth);
-                if (age < 25)
+                
+                if (!ValidationClass.IsInsuranceCardNumberValid(Patient.InsuranceCardNumber))
                 {
-                    MessageBox.Show("JMBG is not valid\nDoctor has to be at least 25 years old");
-                    return;
-                }
-                if (!ValidationClass.IsAccountNumberValid(Doctor.CurrentAccountNumber))
-                {
-                    MessageBox.Show("AccountNumber is not valid");
+                    MessageBox.Show("InsuranceCardNumber is not valid");
                     return;
                 }
                 var passwordBox = parameter as PasswordBox;
@@ -87,11 +81,11 @@ namespace DAN_LI_Dejan_Prodanovic.ViewModel
                 string encryptedString = EncryptionHelper.Encrypt(password);
 
 
-                Doctor.Passwd = encryptedString;
-                service.AddDoctor(Doctor);
+                Patient.Passwd = encryptedString;
+                service.AddPatient(Patient);
 
-          
-                string str = string.Format("You succesfuly registered as doctor");
+
+                string str = string.Format("You succesfuly registered as patient");
                 MessageBox.Show(str);
                 view.Close();
 
@@ -114,7 +108,7 @@ namespace DAN_LI_Dejan_Prodanovic.ViewModel
             //}
             //else
             //{
-                return true;
+            return true;
             //}
         }
         private ICommand close;

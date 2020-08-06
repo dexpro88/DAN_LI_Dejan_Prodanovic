@@ -55,19 +55,19 @@
                     HorizontalAlignment="Center">
             <Label Content="Full Name:" />
             <StackPanel  Orientation="Horizontal">
-                <TextBox Text="{Binding User.FirstName}" />
+                <TextBox Text="{Binding Patient.FullName}" />
             </StackPanel>
             
             <Label Content="JMBG:" />
             <StackPanel Orientation="Horizontal">
-                <TextBox Text="{Binding User.JMBG}" />
+                <TextBox Text="{Binding Patient.JMBG}" />
             </StackPanel>
             <Label Content="InsuranceCardNumber (7 digits):" />
             <StackPanel Orientation="Horizontal">
-                <TextBox Text="{Binding User.Residence}" />
+                <TextBox Text="{Binding Patient.InsuranceCardNumber}" />
             </StackPanel>
             <Label Content="Username:" />
-            <TextBox Text="{Binding User.Username}" />
+            <TextBox Text="{Binding Patient.UserName}" />
             <Label Content="Password:" />
             <PasswordBox Name="passwordBox"
                          Background="#545d6a"

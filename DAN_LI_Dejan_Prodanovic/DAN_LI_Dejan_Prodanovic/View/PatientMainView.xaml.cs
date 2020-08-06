@@ -1,4 +1,5 @@
-﻿using DAN_LI_Dejan_Prodanovic.ViewModel;
+﻿using DAN_LI_Dejan_Prodanovic.Model;
+using DAN_LI_Dejan_Prodanovic.ViewModel;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -16,14 +17,19 @@ using System.Windows.Shapes;
 namespace DAN_LI_Dejan_Prodanovic.View
 {
     /// <summary>
-    /// Interaction logic for PatientRegisterView.xaml
+    /// Interaction logic for PatientMainView.xaml
     /// </summary>
-    public partial class PatientRegisterView : Window
+    public partial class PatientMainView : Window
     {
-        public PatientRegisterView()
+        public PatientMainView()
         {
             InitializeComponent();
-            DataContext = new PatientRegisterViewModel(this);
+            DataContext = new PatientMainViewModel(this);
+        }
+        public PatientMainView(tblPatient patient)
+        {
+            InitializeComponent();
+            DataContext = new PatientMainViewModel(this, patient);
         }
     }
 }

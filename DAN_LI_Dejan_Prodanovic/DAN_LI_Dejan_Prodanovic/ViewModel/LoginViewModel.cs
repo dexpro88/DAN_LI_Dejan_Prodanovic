@@ -93,14 +93,22 @@ namespace DAN_LI_Dejan_Prodanovic.ViewModel
                     DoctorMainView doctorMainView = new DoctorMainView();
                     doctorMainView.Show();
                     view.Close();
-                
+                return;
+            }
+            tblPatient patient = service.GetPatientByUserNameAndPassword(UserName, encryptedString);
+            if (patient != null)
+            {
+
+                PatientMainView patientMainView = new PatientMainView(patient);
+                patientMainView.Show();
+                view.Close();
+                return;
             }
 
-            //else
-            //{
-            //    MessageBox.Show("Wrong username or password");
+            
+              MessageBox.Show("Wrong username or password");
 
-            //}
+            
 
 
         }
