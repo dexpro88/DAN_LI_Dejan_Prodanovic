@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="cc4485b938494b24b74b4e849af97795" Name="Diagram1">
+        <EntityTypeShape EntityType="MedicalDataModel.tblDoctor" Width="1.5" PointX="0.75" PointY="1" IsExpanded="true" />
+        <EntityTypeShape EntityType="MedicalDataModel.tblPatient" Width="1.5" PointX="3" PointY="1" IsExpanded="true" />
+        <EntityTypeShape EntityType="MedicalDataModel.tblRequest" Width="1.5" PointX="5.25" PointY="1" IsExpanded="true" />
+        <EntityTypeShape EntityType="MedicalDataModel.vwPatientRequest" Width="1.5" PointX="0.75" PointY="4.75" IsExpanded="true" />
+        <AssociationConnector Association="MedicalDataModel.FK__tblPatien__Docto__398D8EEE" ManuallyRouted="false" />
+        <AssociationConnector Association="MedicalDataModel.FK__tblReques__Docto__3D5E1FD2" ManuallyRouted="false" />
+        <AssociationConnector Association="MedicalDataModel.FK__tblReques__Patie__3C69FB99" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>
