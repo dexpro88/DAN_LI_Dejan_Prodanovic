@@ -1,11 +1,11 @@
-﻿<Window x:Class="DAN_LI_Dejan_Prodanovic.View.DoctorRegisterView"
+﻿<Window x:Class="DAN_LI_Dejan_Prodanovic.View.PatientRegisterView"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:DAN_LI_Dejan_Prodanovic.View"
         mc:Ignorable="d"
-        Title="DoctorRegisterView"
+        Title="PatientRegisterView"
         Height="600"
         Width="400"
         Background="#2e3137"
@@ -53,24 +53,21 @@
         </Grid.RowDefinitions>
         <StackPanel Orientation="Vertical"
                     HorizontalAlignment="Center">
-            <Label Content="First Name:" />
+            <Label Content="Full Name:" />
             <StackPanel  Orientation="Horizontal">
-                <TextBox Text="{Binding Doctor.FirstName}" />
+                <TextBox Text="{Binding User.FirstName}" />
             </StackPanel>
-            <Label Content="Last Name:" />
-            <StackPanel Orientation="Horizontal">
-                <TextBox Text="{Binding Doctor.LastName}" />
-            </StackPanel>
+            
             <Label Content="JMBG:" />
             <StackPanel Orientation="Horizontal">
-                <TextBox Text="{Binding Doctor.JMBG}" />
+                <TextBox Text="{Binding User.JMBG}" />
             </StackPanel>
-            <Label Content="Current account number (10 digits):" />
+            <Label Content="InsuranceCardNumber (7 digits):" />
             <StackPanel Orientation="Horizontal">
-                <TextBox Text="{Binding Doctor.CurrentAccountNumber}" />
+                <TextBox Text="{Binding User.Residence}" />
             </StackPanel>
             <Label Content="Username:" />
-            <TextBox Text="{Binding Doctor.UserName}" />
+            <TextBox Text="{Binding User.Username}" />
             <Label Content="Password:" />
             <PasswordBox Name="passwordBox"
                          Background="#545d6a"

@@ -92,6 +92,38 @@ namespace DAN_LI_Dejan_Prodanovic.ViewModel
             return true;
         }
 
+        private ICommand registerAsPatient;
+        public ICommand RegisterAsPatient
+        {
+            get
+            {
+                if (registerAsPatient == null)
+                {
+                    registerAsPatient = new RelayCommand(param => RegisterAsPatientExecute(),
+                        param => CanRegisterAsPatientExecute());
+                }
+                return registerAsPatient;
+            }
+        }
+
+        private void RegisterAsPatientExecute()
+        {
+            try
+            {
+                PatientRegisterView patientRegisterView = new PatientRegisterView();
+                patientRegisterView.Show();
+
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.ToString());
+            }
+        }
+        private bool CanRegisterAsPatientExecute()
+        {
+            return true;
+        }
+
         private ICommand back;
         public ICommand Back
         {

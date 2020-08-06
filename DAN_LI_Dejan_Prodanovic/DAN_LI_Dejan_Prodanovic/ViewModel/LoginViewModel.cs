@@ -1,4 +1,7 @@
 ﻿using DAN_LI_Dejan_Prodanovic.Command;
+using DAN_LI_Dejan_Prodanovic.Model;
+using DAN_LI_Dejan_Prodanovic.Service;
+using DAN_LI_Dejan_Prodanovic.Utility;
 using DAN_LI_Dejan_Prodanovic.View;
 using System;
 using System.Collections.Generic;
@@ -14,12 +17,12 @@ namespace DAN_LI_Dejan_Prodanovic.ViewModel
     class LoginViewModel:ViewModelBase
     {
         LoginView view;
-        
+        IService service;
 
         public LoginViewModel(LoginView loginView)
         {
             view = loginView;
-            
+            service = new ServiceClass();
         }
 
         private string userName;
@@ -79,23 +82,20 @@ namespace DAN_LI_Dejan_Prodanovic.ViewModel
                 MessageBox.Show("Wrong user name or password");
                 return;
             }
-            
 
-            //string encryptedString = EncryptionHelper.Encrypt(password);
 
-            //tblUser user = userService.GetUserByUserNameAndPassword(UserName, encryptedString);
-            //if (user != null)
-            //{
-            //    tblAdmin admin = adminService.GetAdminByUserId(user.UserID);
+            string encryptedString = EncryptionHelper.Encrypt(password);
 
-            //    if (admin != null)
-            //    {
-            //        AdminMainView adminMainView = new AdminMainView();
-            //        adminMainView.Show();
-            //        view.Close();
-            //    }
-            //}
-            
+            tblDoctor doctor = service.GetDoctorByUserNameAndPassword(UserName, encryptedString);
+            if (doctor != null)
+            {
+                
+                    DoctorMainView doctorMainView = new DoctorMainView();
+                    doctorMainView.Show();
+                    view.Close();
+                
+            }
+
             //else
             //{
             //    MessageBox.Show("Wrong username or password");
