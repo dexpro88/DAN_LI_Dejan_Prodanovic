@@ -133,26 +133,26 @@ namespace DAN_LI_Dejan_Prodanovic.ViewModel
         }
 
 
-        private ICommand registerAsDoctor;
-        public ICommand RegisterAsDoctor
+        private ICommand sickLeave;
+        public ICommand SickLeave
         {
             get
             {
-                if (registerAsDoctor == null)
+                if (sickLeave == null)
                 {
-                    registerAsDoctor = new RelayCommand(param => RegisterAsDoctorExecute(),
-                        param => CanRegisterAsDoctorExecute());
+                    sickLeave = new RelayCommand(param => SickLeaveExecute(),
+                        param => CanSickLeaveExecute());
                 }
-                return registerAsDoctor;
+                return sickLeave;
             }
         }
 
-        private void RegisterAsDoctorExecute()
+        private void SickLeaveExecute()
         {
             try
             {
-                DoctorRegisterView doctorRegisterView = new DoctorRegisterView();
-                doctorRegisterView.Show();
+                SickLeaveView sleave = new SickLeaveView();
+                sleave.Show();
 
             }
             catch (Exception ex)
@@ -160,7 +160,7 @@ namespace DAN_LI_Dejan_Prodanovic.ViewModel
                 MessageBox.Show(ex.ToString());
             }
         }
-        private bool CanRegisterAsDoctorExecute()
+        private bool CanSickLeaveExecute()
         {
             return true;
         }

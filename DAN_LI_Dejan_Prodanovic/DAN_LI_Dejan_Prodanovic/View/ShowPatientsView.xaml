@@ -27,7 +27,7 @@
     </Window.Resources>
     <Grid>
         <Grid.RowDefinitions>
-            <RowDefinition Height="30" />
+            <RowDefinition Height="40" />
             <RowDefinition Height="*" />
             <RowDefinition Height="30" />
             <RowDefinition Height="30" />
@@ -36,23 +36,14 @@
         <StackPanel Grid.Row="0"
                     Orientation="Horizontal">
             <Label FontSize="18"
-                   Content="Menu: "
+                   Content="Your patients: "
                    VerticalAlignment="Center"
                    Foreground="White" />
         </StackPanel>
-        <StackPanel Grid.Row="0"
-                    Orientation="Horizontal"
-                    HorizontalAlignment="Right">
-            <Button  VerticalAlignment="Center"
-                     Command="{Binding Logout}"
-                     Content="Logout" />
-            <Button  VerticalAlignment="Center"
-                     Command="{Binding Back}"
-                     Content="Back" />
-        </StackPanel>
+        
         <DataGrid Grid.Row="1"
                   Name="DataGridResults"
-                  ItemsSource="{Binding PizzaList, UpdateSourceTrigger=PropertyChanged}"
+                  ItemsSource="{Binding PatientList, UpdateSourceTrigger=PropertyChanged}"
                   SelectedItem="{Binding SelectedPizza,UpdateSourceTrigger=PropertyChanged}"
                   IsReadOnly="True"
                   HeadersVisibility="Column"
@@ -62,53 +53,20 @@
                   Foreground="Black"
                   FontWeight="Bold">
             <DataGrid.Columns>
-                <DataGridTextColumn Header="Pizza type"
-                                    Binding="{Binding PizzaType}" />
-                <DataGridTextColumn Header="Price"
-                                    Binding="{Binding Price}" />
-                 
-                <DataGridTemplateColumn>
-                    <DataGridTemplateColumn.CellTemplate>
-                        <DataTemplate>
-                            <Button Width="100"
-                                    Height="20"
-                                    Command="{Binding Path=DataContext.AddToOrder, RelativeSource= {RelativeSource FindAncestor,
-                                       AncestorType={x:Type DataGrid}},UpdateSourceTrigger=PropertyChanged}"
-                                    Content="Add to order" />
-                        </DataTemplate>
-                    </DataGridTemplateColumn.CellTemplate>
-                </DataGridTemplateColumn>
+                <DataGridTextColumn Header="FullName"
+                                    Binding="{Binding FullName}" />
+                <DataGridTextColumn Header="JMBG"
+                                    Binding="{Binding JMBG}" />
+                <DataGridTextColumn Header="InsuranceCardNumber"
+                                    Binding="{Binding InsuranceCardNumber}" />
+                
             </DataGrid.Columns>
         </DataGrid>
-        <StackPanel Grid.Row="3"
-                    Orientation="Horizontal"
-                    HorizontalAlignment="Center">
-            <Label Visibility="{Binding ViewMakeOrder, UpdateSourceTrigger=PropertyChanged}"
-                   Foreground="White">Amount:</Label>
-            <TextBox Visibility="{Binding ViewMakeOrder, UpdateSourceTrigger=PropertyChanged}"
-                     Width="50"
-                     Text="{Binding CurrentAmount}"
-                     Margin="3" />
-            <TextBlock Visibility="{Binding ViewMakeOrder, UpdateSourceTrigger=PropertyChanged}"
-                       Margin="3"
-                       Foreground="White"
-                       Text="{Binding TotalAmount}"></TextBlock>
-            <TextBlock Visibility="{Binding ViewShowOrder, UpdateSourceTrigger=PropertyChanged}"
-                       Margin="3"
-                       Foreground="White"
-                       Text="Your order is waiting for approval."></TextBlock>
-        </StackPanel>
+         
         <StackPanel Grid.Row="4"
                     Orientation="Horizontal"
                     HorizontalAlignment="Center">
-            <Button Visibility="{Binding ViewMakeOrder, UpdateSourceTrigger=PropertyChanged}"
-                    Width="100"
-                    Command="{Binding MakeOrder}"
-                    Content="Make Order" />
-            <Button Visibility="{Binding ViewShowOrder, UpdateSourceTrigger=PropertyChanged}"
-                    Width="100"
-                    Command="{Binding ShowOrder}"
-                    Content="Show Order" />
+          
             <Button Command="{Binding Close}"
                     Content="Close" />
         </StackPanel>

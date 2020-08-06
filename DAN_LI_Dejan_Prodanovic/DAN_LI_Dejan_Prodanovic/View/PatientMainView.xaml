@@ -80,7 +80,7 @@
             <Button Command="{Binding ChooseDoctor}"
                     Visibility="{Binding ViewNoDoctorMessage, UpdateSourceTrigger=PropertyChanged}"
                     Content="Choose doctor" />
-            <Button Command="{Binding SickLeaveRequest}"
+            <Button Command="{Binding SickLeave}"
                     Content="SickLeave request" />
             <Button Command="{Binding Logout}"
                     Content="Logout" />
