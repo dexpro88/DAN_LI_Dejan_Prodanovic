@@ -156,5 +156,97 @@ namespace DAN_LI_Dejan_Prodanovic.Service
                 return null;
             }
         }
+
+        public tblDoctor GetDoctorByUserName(string username)
+        {
+            try
+            {
+                using (MedicalDataEntities context = new MedicalDataEntities())
+                {
+
+
+                    tblDoctor doctor = (from x in context.tblDoctors
+                                        where x.UserName.Equals(username)
+                                        
+                                        select x).First();
+
+                    return doctor;
+                }
+            }
+            catch (Exception ex)
+            {
+                System.Diagnostics.Debug.WriteLine("Exception" + ex.Message.ToString());
+                return null;
+            }
+        }
+        public tblPatient GetPatientByUserName(string username)
+        {
+            try
+            {
+                using (MedicalDataEntities context = new MedicalDataEntities())
+                {
+
+
+                    tblPatient patient = (from x in context.tblPatients
+                                          where x.UserName.Equals(username)
+                                          
+                                          select x).First();
+
+                    return patient;
+                }
+            }
+            catch (Exception ex)
+            {
+                System.Diagnostics.Debug.WriteLine("Exception" + ex.Message.ToString());
+                return null;
+            }
+        }
+
+        public tblDoctor GetDoctorByCurrentAccountNumber(string number)
+        {
+            try
+            {
+                using (MedicalDataEntities context = new MedicalDataEntities())
+                {
+
+
+                    tblDoctor doctor = (from x in context.tblDoctors
+                                          where x.UserName.Equals(number)
+
+                                          select x).First();
+
+                    return doctor;
+                }
+            }
+            catch (Exception ex)
+            {
+                System.Diagnostics.Debug.WriteLine("Exception" + ex.Message.ToString());
+                return null;
+            }
+        }
+
+
+        public tblPatient GetPatientByInsuranceCardNumber(string number)
+        {
+            try
+            {
+                using (MedicalDataEntities context = new MedicalDataEntities())
+                {
+
+
+                    tblPatient patient = (from x in context.tblPatients
+                                          where x.UserName.Equals(number)
+
+                                          select x).First();
+
+                    return patient;
+                }
+            }
+            catch (Exception ex)
+            {
+                System.Diagnostics.Debug.WriteLine("Exception" + ex.Message.ToString());
+                return null;
+            }
+        }
     }
 }

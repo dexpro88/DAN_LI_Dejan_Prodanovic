@@ -15,5 +15,9 @@ namespace DAN_LI_Dejan_Prodanovic.Service
         tblPatient GetPatientByUserNameAndPassword(string username, string password);
         List<tblDoctor> GetDoctors();
         tblDoctor GetDoctorById(int doctorId);
+        tblDoctor GetDoctorByUserName(string username);
+        tblPatient GetPatientByUserName(string username);
+        tblDoctor GetDoctorByCurrentAccountNumber(string number);
+        tblPatient GetPatientByInsuranceCardNumber(string number);
     }
 }

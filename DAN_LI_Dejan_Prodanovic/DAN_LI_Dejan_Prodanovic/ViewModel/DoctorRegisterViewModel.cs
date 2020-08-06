@@ -81,6 +81,29 @@ namespace DAN_LI_Dejan_Prodanovic.ViewModel
                     MessageBox.Show("AccountNumber is not valid");
                     return;
                 }
+
+                if (service.GetDoctorByUserName(Doctor.UserName) != null)
+                {
+                    string str1 = string.Format("User with this username exists\nChoose another username");
+                    MessageBox.Show(str1);
+                    return;
+                }
+
+
+                if (service.GetPatientByUserName(Doctor.UserName) != null)
+                {
+                    string str1 = string.Format("User with this username exists\nChoose another username");
+                    MessageBox.Show(str1);
+                    return;
+                }
+
+                if (service.GetDoctorByCurrentAccountNumber(Doctor.CurrentAccountNumber) != null)
+                {
+                    string str1 = string.Format("User with this  CurrentAccountNumber exists\n" +
+                        "Choose another CurrentAccountNumber");
+                    MessageBox.Show(str1);
+                    return;
+                }
                 var passwordBox = parameter as PasswordBox;
                 var password = passwordBox.Password;
 
@@ -105,17 +128,18 @@ namespace DAN_LI_Dejan_Prodanovic.ViewModel
         private bool CanSaveExecute(object parameter)
         {
 
-            //if (String.IsNullOrEmpty(User.FirstName) || String.IsNullOrEmpty(User.LastName)
-            //    || String.IsNullOrEmpty(User.JMBG) || String.IsNullOrEmpty(User.Residence)
-            //    || String.IsNullOrEmpty(User.Username) || parameter as PasswordBox == null
-            //    || SelectedSector == null)
-            //{
-            //    return false;
-            //}
-            //else
-            //{
+            if (String.IsNullOrEmpty(Doctor.FirstName) || String.IsNullOrEmpty(Doctor.LastName)
+                || String.IsNullOrEmpty(Doctor.JMBG) || String.IsNullOrEmpty(Doctor.CurrentAccountNumber)
+                || String.IsNullOrEmpty(Doctor.UserName) || parameter as PasswordBox == null
+                || String.IsNullOrEmpty((parameter as PasswordBox).Password
+                ))
+            {
+                return false;
+            }
+            else
+            {
                 return true;
-            //}
+            }
         }
         private ICommand close;
         public ICommand Close

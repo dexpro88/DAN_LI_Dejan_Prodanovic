@@ -97,6 +97,8 @@ namespace DAN_LI_Dejan_Prodanovic.ViewModel
                 OnPropertyChanged("SelectedDoctor");
             }
         }
+
+
         private ICommand logout;
         public ICommand Logout
         {
@@ -162,26 +164,26 @@ namespace DAN_LI_Dejan_Prodanovic.ViewModel
             return true;
         }
 
-        private ICommand registerAsPatient;
-        public ICommand RegisterAsPatient
+        private ICommand chooseDoctor;
+        public ICommand ChooseDoctor
         {
             get
             {
-                if (registerAsPatient == null)
+                if (chooseDoctor == null)
                 {
-                    registerAsPatient = new RelayCommand(param => RegisterAsPatientExecute(),
-                        param => CanRegisterAsPatientExecute());
+                    chooseDoctor = new RelayCommand(param => ChooseDoctorExecute(),
+                        param => CanChooseDoctorExecute());
                 }
-                return registerAsPatient;
+                return chooseDoctor;
             }
         }
 
-        private void RegisterAsPatientExecute()
+        private void ChooseDoctorExecute()
         {
             try
             {
-                PatientRegisterView patientRegisterView = new PatientRegisterView();
-                patientRegisterView.Show();
+                ChooseDoctorView chooseDoctorView = new ChooseDoctorView();
+                chooseDoctorView.Show();
 
             }
             catch (Exception ex)
@@ -189,7 +191,7 @@ namespace DAN_LI_Dejan_Prodanovic.ViewModel
                 MessageBox.Show(ex.ToString());
             }
         }
-        private bool CanRegisterAsPatientExecute()
+        private bool CanChooseDoctorExecute()
         {
             return true;
         }

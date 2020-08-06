@@ -103,6 +103,9 @@
     <Compile Include="ViewModel\PatientRegisterViewModel.cs" />
     <Compile Include="ViewModel\RegisterViewModel.cs" />
     <Compile Include="ViewModel\ViewModelBase.cs" />
+    <Compile Include="View\ChooseDoctorView.xaml.cs">
+      <DependentUpon>ChooseDoctorView.xaml</DependentUpon>
+    </Compile>
     <Compile Include="View\DoctorMainView.xaml.cs">
       <DependentUpon>DoctorMainView.xaml</DependentUpon>
     </Compile>
@@ -133,6 +136,10 @@
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Page Include="View\ChooseDoctorView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="View\DoctorMainView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
