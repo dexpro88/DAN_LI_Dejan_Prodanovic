@@ -1,4 +1,5 @@
-﻿using DAN_LI_Dejan_Prodanovic.ViewModel;
+﻿using DAN_LI_Dejan_Prodanovic.Model;
+using DAN_LI_Dejan_Prodanovic.ViewModel;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -24,6 +25,12 @@ namespace DAN_LI_Dejan_Prodanovic.View
         {
             InitializeComponent();
             DataContext = new DoctorMainViewModel(this);
+        }
+
+        public DoctorMainView(tblDoctor doctor)
+        {
+            InitializeComponent();
+            DataContext = new DoctorMainViewModel(this, doctor);
         }
     }
 }

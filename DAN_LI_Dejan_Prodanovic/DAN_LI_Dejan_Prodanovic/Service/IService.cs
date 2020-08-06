@@ -19,5 +19,8 @@ namespace DAN_LI_Dejan_Prodanovic.Service
         tblPatient GetPatientByUserName(string username);
         tblDoctor GetDoctorByCurrentAccountNumber(string number);
         tblPatient GetPatientByInsuranceCardNumber(string number);
+        tblPatient UpdatePatient(tblPatient patient);
+        List<tblPatient> GetPatientsOfDoctor(int doctorID);
+
     }
 }

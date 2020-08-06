@@ -90,7 +90,7 @@ namespace DAN_LI_Dejan_Prodanovic.ViewModel
             if (doctor != null)
             {
                 
-                    DoctorMainView doctorMainView = new DoctorMainView();
+                    DoctorMainView doctorMainView = new DoctorMainView(doctor);
                     doctorMainView.Show();
                     view.Close();
                 return;

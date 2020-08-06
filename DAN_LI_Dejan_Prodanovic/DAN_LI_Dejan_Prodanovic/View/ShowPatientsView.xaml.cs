@@ -17,19 +17,18 @@ using System.Windows.Shapes;
 namespace DAN_LI_Dejan_Prodanovic.View
 {
     /// <summary>
-    /// Interaction logic for ChooseDoctorView.xaml
+    /// Interaction logic for ShowPatientsView.xaml
     /// </summary>
-    public partial class ChooseDoctorView : Window
+    public partial class ShowPatientsView : Window
     {
-        public ChooseDoctorView()
+        public ShowPatientsView()
         {
             InitializeComponent();
-            
         }
-        public ChooseDoctorView(tblPatient patient)
+        public ShowPatientsView(tblDoctor doctor)
         {
             InitializeComponent();
-            DataContext = new ChooseDoctorViewModel(this, patient);
+            DataContext = new ShowPatientsViewModel(this, doctor);
         }
     }
 }

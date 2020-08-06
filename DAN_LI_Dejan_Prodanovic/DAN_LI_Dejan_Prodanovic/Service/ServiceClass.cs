@@ -248,5 +248,54 @@ namespace DAN_LI_Dejan_Prodanovic.Service
                 return null;
             }
         }
+
+        public tblPatient UpdatePatient(tblPatient patient)
+        {
+            try
+            {
+                using (MedicalDataEntities context = new MedicalDataEntities())
+                {
+
+                    tblPatient patientToUpdate = (from u in context.tblPatients where u.PatientID == patient.PatientID select u).First();
+
+
+
+
+                    patientToUpdate.DoctorID = patient.DoctorID;
+                    
+
+                    context.SaveChanges();
+
+                   
+                    return patient;
+
+                }
+            }
+            catch (Exception ex)
+            {
+                System.Diagnostics.Debug.WriteLine("Exception" + ex.Message.ToString());
+                return null;
+            }
+        }
+
+        public List<tblPatient> GetPatientsOfDoctor(int doctorID)
+        {
+            try
+            {
+                using (MedicalDataEntities context = new MedicalDataEntities())
+                {
+                    List<tblPatient> list = new List<tblPatient>();
+                    list = (from x in context.tblPatients
+                            where x.DoctorID == doctorID
+                            select x).ToList();
+                    return list;
+                }
+            }
+            catch (Exception ex)
+            {
+                System.Diagnostics.Debug.WriteLine("Exception" + ex.Message.ToString());
+                return null;
+            }
+        }
     }
 }

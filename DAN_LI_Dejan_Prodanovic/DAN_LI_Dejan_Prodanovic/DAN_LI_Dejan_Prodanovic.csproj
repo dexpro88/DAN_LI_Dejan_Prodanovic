@@ -96,12 +96,14 @@
     <Compile Include="Service\ServiceClass.cs" />
     <Compile Include="Utility\EncryptionHelper.cs" />
     <Compile Include="Validation\ValidationClass.cs" />
+    <Compile Include="ViewModel\ChooseDoctorViewModel.cs" />
     <Compile Include="ViewModel\DoctorMainViewModel.cs" />
     <Compile Include="ViewModel\DoctorRegisterViewModel.cs" />
     <Compile Include="ViewModel\LoginViewModel.cs" />
     <Compile Include="ViewModel\PatientMainViewModel.cs" />
     <Compile Include="ViewModel\PatientRegisterViewModel.cs" />
     <Compile Include="ViewModel\RegisterViewModel.cs" />
+    <Compile Include="ViewModel\ShowPatientsViewModel.cs" />
     <Compile Include="ViewModel\ViewModelBase.cs" />
     <Compile Include="View\ChooseDoctorView.xaml.cs">
       <DependentUpon>ChooseDoctorView.xaml</DependentUpon>
@@ -123,6 +125,9 @@
     </Compile>
     <Compile Include="View\RegisterView.xaml.cs">
       <DependentUpon>RegisterView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\ShowPatientsView.xaml.cs">
+      <DependentUpon>ShowPatientsView.xaml</DependentUpon>
     </Compile>
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
@@ -161,6 +166,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="View\RegisterView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\ShowPatientsView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

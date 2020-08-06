@@ -27,6 +27,7 @@ namespace DAN_LI_Dejan_Prodanovic.ViewModel
         {
             service = new ServiceClass();
             view = patientMainView;
+            ThisPatient = logedInPatient;
             if (logedInPatient.DoctorID!=null)
             {
                 SelectedDoctor = service.GetDoctorById((int)logedInPatient.DoctorID);
@@ -182,8 +183,19 @@ namespace DAN_LI_Dejan_Prodanovic.ViewModel
         {
             try
             {
-                ChooseDoctorView chooseDoctorView = new ChooseDoctorView();
-                chooseDoctorView.Show();
+                ChooseDoctorView chooseDoctorView = new ChooseDoctorView(ThisPatient);
+                chooseDoctorView.ShowDialog();
+                if (ThisPatient.DoctorID != null)
+                {
+                    SelectedDoctor = service.GetDoctorById((int)ThisPatient.DoctorID);
+                    ViewNoDoctorMessage = Visibility.Hidden;
+                    ViewDoctorName = Visibility.Visible;
+                }
+                else
+                {
+                    ViewNoDoctorMessage = Visibility.Visible;
+                    ViewDoctorName = Visibility.Hidden;
+                }
 
             }
             catch (Exception ex)
